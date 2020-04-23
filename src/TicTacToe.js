@@ -56,6 +56,10 @@ class TicTacToe extends React.Component {
     };
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
@@ -183,9 +187,6 @@ const AppInfo = () => (
       </li>
       <li>
         Bold the currently selected item in the move list.
-      </li>
-      <li>
-        Rewrite Board to use two loops to make the squares instead of hardcoding them.
       </li>
       <li>
         Toggle button that lets you sort the moves in either ascending or descending order.
