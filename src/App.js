@@ -3,8 +3,10 @@ import { HashRouter, Route, Link } from "react-router-dom";
 import {Container, Card, Row, Col, Button, Nav, Navbar} from 'react-bootstrap';
 import './App.css';
 import TicTacToe_Img from './images/TicTacToe.png';
-import Project_Saigon_IMG from './images/Project_Saigon_IMG.png'
-import TicTacToe from './TicTacToe'
+import Project_Saigon_IMG from './images/Project_Saigon_IMG.png';
+import TicTacToe from './TicTacToe';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   render() {
@@ -19,16 +21,18 @@ class App extends Component {
               </Row>
               <Row className="justify-content-center">
                 <Nav >
-                  <Nav.Link className="px-4 nav-btn" href="https://kvo189.github.io/">
-                   HOME
+                  <Nav.Link className="px-4 nav-btn">
+                    <Link style={linkStyle} to="/">
+                      ABOUT
+                    </Link>
                   </Nav.Link>
                   <Nav.Link className="px-4 nav-btn" >
-                    <Link style={linkStyle} to="/">
+                    <Link style={linkStyle} to="/projects">
                       PROJECTS
                     </Link>
                   </Nav.Link>
                   <Nav.Link className="px-4 nav-btn" >
-                    <Link style={linkStyle} to="/Contact"
+                    <Link style={linkStyle} to="/contact"
                       >CONTACT
                     </Link>
                   </Nav.Link>
@@ -37,21 +41,22 @@ class App extends Component {
             </Col>
           </Navbar>
 
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={About} />
           <Route path="/tic-tac-toe" component={TicTacToe} />
           <Route path="/contact" component={Contact} />
+          <Route path="/projects" component={Projects} />
         </div>
       </HashRouter>
     );
   }
 }
 
-class Home extends Component {
+class Projects extends Component {
   render() {
     return (
       <div className="page bg-light">
         <Container className="p-3 bg-light">
-          <Row xs={1} md={2} xl={4}>
+          <Row xs={1} md={2} xl={2}>
             <Col>
               <Card>
                 <Card.Body>
@@ -100,6 +105,37 @@ class Home extends Component {
     );
   }
 }
+
+class About extends Component {
+  render() {
+    return (
+      <div>
+        <div id="welcome-msg-box" className="custom-shadow">
+          <div id="welcome-msg-box-header" className="d-flex justify-content-between">
+            <div className="d-flex align-items-center pl-4">
+              <i className="arrow arrow-left"></i>
+            </div>
+            <div className="d-flex flex-column align-items-center justify-content-end m-0">
+              <img src="http://res.cloudinary.com/dpealgfbi/image/upload/v1529722421/profile-img.jpg" className="img-fluid rounded-circle"/>
+              <span style={{fontSize: "1rem"}}>Khang</span>
+            </div>
+            <div className="d-flex align-items-center pr-3">
+              <FontAwesomeIcon className="fa-lg" icon={faInfoCircle} style={{color: "rgb(66, 134, 244)"}}></FontAwesomeIcon>
+            </div>
+          </div>
+
+          <div className="from-them">
+            <h1>Hello! My name is <span className="text-highlight">Khang Vo</span></h1>
+          </div>
+          <div className="from-them">
+            <p>I’m a self taught front end <span className="text-highlight">web developer</span> living in Birmingham, AL.</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
 const Contact = () => <div className="page"><h2>Contact (TODO)</h2></div>
 
 export default App;
