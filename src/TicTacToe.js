@@ -55,11 +55,7 @@ class TicTacToe extends React.Component {
       historyAscending: true,
     };
   }
-
-  componentDidMount() {
-    window.scrollTo(0, 0)
-  }
-
+  
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];

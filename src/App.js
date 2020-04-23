@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
+import ScrollToTop from 'react-router-scroll-top';
 import {Container, Card, Row, Col, Button, Nav, Navbar} from 'react-bootstrap';
 import './App.css';
 import TicTacToe_Img from './images/TicTacToe.png';
@@ -13,6 +14,7 @@ class App extends Component {
     const linkStyle = {color: 'inherit', textDecoration: 'none'};
     return (
       <HashRouter basename="/">
+        <ScrollToTop>
         <div>
           <Navbar fixed="top" bg="white" variant="light">
             <Col>
@@ -46,6 +48,7 @@ class App extends Component {
           <Route path="/contact" component={Contact} />
           <Route path="/projects" component={Projects} />
         </div>
+        </ScrollToTop>
       </HashRouter>
     );
   }
