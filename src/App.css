@@ -2,12 +2,27 @@
   text-align: center;
 }
 
+.page-header-text {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  color: lightgray;
+}
+
 .page {
-  margin-top: 64px;
+  margin-top: 116px;
+}
+
+.nav-btn {
+  background-color: white !important;
+}
+
+.nav-btn:hover{
+  background-color: #f8f9fa!important;
 }
 
 .card {
   border: none !important;
+  background-color: #f8f9fa!important;
 }
 
 .card-body {

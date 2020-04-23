@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
-import {Container, Card, Row, Col, CardDeck, Nav, Navbar} from 'react-bootstrap';
+import {Container, Card, Row, Col, Button, Nav, Navbar} from 'react-bootstrap';
 import './App.css';
 import TicTacToe_Img from './images/TicTacToe.png';
 import Project_Saigon_IMG from './images/Project_Saigon_IMG.png'
@@ -12,12 +12,29 @@ class App extends Component {
     return (
       <HashRouter basename="/">
         <div>
-          <Navbar fixed="top" bg="white" variant="light" className="justify-content-center">
-            <Nav >
-              <Nav.Link href="https://kvo189.github.io/">HOME</Nav.Link>
-              <Nav.Link><Link style={linkStyle} to="/">PROJECTS</Link></Nav.Link>
-              <Nav.Link><Link style={linkStyle} to="/Contact">CONTACT</Link></Nav.Link>
-            </Nav>
+          <Navbar fixed="top" bg="white" variant="light">
+            <Col>
+              <Row className="justify-content-center">
+                <h1 className="page-header-text text-secondary">Khang Vo</h1>
+              </Row>
+              <Row className="justify-content-center">
+                <Nav >
+                  <Nav.Link className="px-4 nav-btn" href="https://kvo189.github.io/">
+                   HOME
+                  </Nav.Link>
+                  <Nav.Link className="px-4 nav-btn" >
+                    <Link style={linkStyle} to="/">
+                      PROJECTS
+                    </Link>
+                  </Nav.Link>
+                  <Nav.Link className="px-4 nav-btn" >
+                    <Link style={linkStyle} to="/Contact"
+                      >CONTACT
+                    </Link>
+                  </Nav.Link>
+                </Nav>
+              </Row>
+            </Col>
           </Navbar>
 
           <Route exact path="/" component={Home} />
@@ -32,13 +49,9 @@ class App extends Component {
 class Home extends Component {
   render() {
     return (
-      <div className="page">
-        <Container className="p-3 bg-white">
-          <h2>Projects Showcase</h2>
-          <medium  className="text-muted">Click on image to view project</medium>
-          <hr></hr>
-
-          <Row xs={1} md={2} lg={3}>
+      <div className="page bg-light">
+        <Container className="p-3 bg-light">
+          <Row xs={1} md={2} xl={4}>
             <Col>
               <Card>
                 <Card.Body>
