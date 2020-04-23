@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
-import {Container, Card, CardDeck, Nav, Navbar} from 'react-bootstrap';
+import {Container, Card, Row, Col, CardDeck, Nav, Navbar} from 'react-bootstrap';
 import './App.css';
 import TicTacToe_Img from './images/TicTacToe.png';
 import TicTacToe from './TicTacToe'
@@ -36,30 +36,49 @@ class Home extends Component {
           <h2>Projects Showcase</h2>
           <medium  className="text-muted">Click on image to view project</medium>
           <hr></hr>
-          <CardDeck>
-            <Card>
-              <Card.Body>
-              <Link to="/tic-tac-toe"><Card.Img variant="top" src={TicTacToe_Img} /></Link>
-                <Card.Title>Tic-Tac-Toe</Card.Title>
-                <small className="text-muted">A simple tic-tac-toe game</small>
-              {/* <Link to="/tic-tac-toe">
-                <Button variant="primary">Go somewhere</Button>
-              </Link> */}
-              </Card.Body>
-            </Card>
-            <Card>
-              <Card.Img variant="top" src="holder.js/100px160" />
-              <Card.Body>
-                <Card.Title>Card title</Card.Title>
-              </Card.Body>
-            </Card>
-            <Card>
-              <Card.Img variant="top" src="holder.js/100px160" />
-              <Card.Body>
-                <Card.Title>Card title</Card.Title>
-              </Card.Body>
-            </Card>
-          </CardDeck>
+
+          <Row xs={1} md={2} lg={4}>
+            <Col className="mb-4">
+              <Card >
+                <Card.Body>
+                <Link to="/tic-tac-toe"><Card.Img variant="top" src={TicTacToe_Img} /></Link>
+                  <Card.Title>Tic-Tac-Toe</Card.Title>
+                  <small className="text-muted">Created on April 23 2020</small>
+                  <Card.Text>A simple tic-tac-toe game.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col className="mb-4">
+              <Card >
+                <Card.Body>
+                <Link to="/tic-tac-toe"><Card.Img variant="top" src={TicTacToe_Img} /></Link>
+                  <Card.Title>Tic-Tac-Toe</Card.Title>
+                  <small className="text-muted">Created on April 23 2020</small>
+                  <Card.Text>A simple tic-tac-toe game.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col className="mb-4">
+              <Card >
+                <Card.Body>
+                <Link to="/tic-tac-toe"><Card.Img variant="top" src={TicTacToe_Img} /></Link>
+                  <Card.Title>Tic-Tac-Toe</Card.Title>
+                  <small className="text-muted">Created on April 23 2020</small>
+                  <Card.Text>A simple tic-tac-toe game.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col className="mb-4">
+              <Card >
+                <Card.Body>
+                <Link to="/tic-tac-toe"><Card.Img variant="top" src={TicTacToe_Img} /></Link>
+                  <Card.Title>Tic-Tac-Toe</Card.Title>
+                  <small className="text-muted">Created on April 23 2020</small>
+                  <Card.Text>A simple tic-tac-toe game.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
         </Container>
       </div>
     );
