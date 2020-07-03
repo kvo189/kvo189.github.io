@@ -49,10 +49,10 @@
 
 #welcome-msg-box{
   line-height: 26px;
-  max-width: 400px;
-  min-height: 600px;
+  max-width: 375px;
+  min-height: 550px;
   height: 80%;
-  margin: 200px auto;
+  margin: 170px auto;
   overflow-X: hidden;
   position: relative;
   font-size: 1.5rem;
@@ -99,7 +99,7 @@ i.arrow-left {
 
 #welcome-msg-box h1,
 #welcome-msg-box p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: rgb(40, 40, 40);
   font-weight: normal;
   margin: 0;
