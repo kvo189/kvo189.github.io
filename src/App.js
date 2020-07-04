@@ -4,8 +4,10 @@ import ScrollToTop from 'react-router-scroll-top';
 import {Container, Card, Row, Col, Button, Nav, Navbar} from 'react-bootstrap';
 import './App.css';
 import TicTacToe_Img from './images/TicTacToe.png';
+import NotesApp_Img from './images/NotesApp.png';
 import Project_Saigon_IMG from './images/Project_Saigon_IMG.png';
 import TicTacToe from './TicTacToe';
+import NotesApp from './projects/notes-app/App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -45,6 +47,7 @@ class App extends Component {
 
           <Route exact path="/" component={About} />
           <Route path="/tic-tac-toe" component={TicTacToe} />
+          <Route path="/notes-app" component={NotesApp} />
           <Route path="/contact" component={Contact} />
           <Route path="/projects" component={Projects} />
         </div>
@@ -60,48 +63,25 @@ class Projects extends Component {
       <div className="page bg-light">
         <Container className="p-3 bg-light">
           <Row xs={1} md={2} xl={2}>
-            <Col>
-              <Card>
-                <Card.Body>
-                <Link to="/tic-tac-toe"><Card.Img className="shadow-sm zoom" variant="top" src={TicTacToe_Img} /></Link>
-                  <Card.Title>Tic-Tac-Toe</Card.Title>
-                  <small className="text-muted">created on April 23 2020</small>
-                  <Card.Text>Simple Tic-Tac-Toe Game with React</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card >
-                <Card.Body>
-                  <a href="http://www.saigonnoodlehouse280.com"><Card.Img className="shadow-sm zoom" variant="top" src={Project_Saigon_IMG} /></a>
-                  <Card.Title>Saigonnoodlehouse280.com</Card.Title>
-                  <small className="text-muted">created on May 2018</small>
-                  <Card.Text>
-                    Responsive Web Design with HTML/CSS/JS
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card >
-                <Card.Body>
-                <Link to="/tic-tac-toe"><Card.Img variant="top" src={TicTacToe_Img} /></Link>
-                  <Card.Title>Tic-Tac-Toe</Card.Title>
-                  <small className="text-muted">Created on April 23 2020</small>
-                  <Card.Text>A simple tic-tac-toe game.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card >
-                <Card.Body>
-                <Link to="/tic-tac-toe"><Card.Img variant="top" src={TicTacToe_Img} /></Link>
-                  <Card.Title>Tic-Tac-Toe</Card.Title>
-                  <small className="text-muted">Created on April 23 2020</small>
-                  <Card.Text>A simple tic-tac-toe game.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+            <ProjectCard link='/notes-app' 
+              imgSrc={NotesApp_Img} 
+              cardTitle='React Markdown Notes Taking App'
+              date = 'July 3 2020'
+              description = 'Create and store your notes in markdown format for a later purpose!'
+            />
+            <ProjectCard link="/tic-tac-toe"
+              imgSrc={TicTacToe_Img} 
+              cardTitle='Tic-Tac-Toe'
+              date = 'April 23 2020'
+              description = 'Simple Tic-Tac-Toe Game with React'
+            />
+            <ProjectCard link="http://www.saigonnoodlehouse280.com"
+              imgSrc={Project_Saigon_IMG} 
+              cardTitle='Saigonnoodlehouse280.com'
+              date = 'May 2018'
+              description = 'Responsive Web Design with HTML/CSS/JS'
+              isDirectLink = {true}
+            />
           </Row>
         </Container>
       </div>
@@ -136,6 +116,36 @@ class About extends Component {
         </div>
       </div>
     )
+  }
+}
+
+class ProjectCard extends Component {
+  render() {
+    const link = this.props.link,
+      imgSrc = this.props.imgSrc,
+      cardTitle = this.props.cardTitle,
+      date = this.props.date,
+      description = this.props.description,
+      isDirectLink = this.props.isDirectLink;
+    var linkHTML;
+    if (!isDirectLink) {
+      linkHTML = <Link to={link}><Card.Img className="shadow-sm zoom" variant="top" src={imgSrc} /></Link>;
+    }else{
+      linkHTML = <a href={link}><Card.Img className="shadow-sm zoom" variant="top" src={imgSrc} /></a>
+    }
+
+    return (
+      <Col>
+        <Card>
+          <Card.Body>
+            {linkHTML}
+            <Card.Title>{cardTitle}</Card.Title>
+            <small className="text-muted">created on {date}</small>
+            <Card.Text>{description}</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+    );
   }
 }
 
