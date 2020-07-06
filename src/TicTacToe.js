@@ -116,7 +116,7 @@ class TicTacToe extends React.Component {
       status = 'Next player: ' + (this.state.xIsNext ? 'X': 'O');
     }
     return (
-      <div className="game page">
+      <div className="game">
         <div className="game-board">
           <Board 
             winningSquares={calculateWinner(current.squares).winningSquares}

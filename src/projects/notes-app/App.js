@@ -115,7 +115,7 @@ class App extends React.Component {
       <Note key={note.id} id={note.id} date={note.date} value={note.value} onDelete={this.handleDelete} onSave={this.handleSave}/>
     ));
     return (
-      <div className="App page">
+      <div className="App">
         <header className="App-header">
           React Markdown Notes Taking App
         </header>

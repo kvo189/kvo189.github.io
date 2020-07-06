@@ -16,30 +16,13 @@ class App extends Component {
     return (
       <HashRouter basename="/">
         <ScrollToTop>
-        <div>
+        <div className="mt-3">
+          <Row className="justify-content-center navbar--show">
+          <h1 className="page-header-text text-secondary">Khang Vo</h1>
+          </Row>
           <Route render={(props) => {
                   return (
-                    <Navbar fixed="top" bg="white" variant="light">
-                      <Col>
-                        <Row className="justify-content-center">
-                          <h1 className="page-header-text text-secondary">Khang Vo</h1>
-                        </Row>
-                        <Row className="justify-content-center">
-                          <ul className="nav navbar-links align-content-center">
-                            <li className={"navbar-link" + (props.location.pathname === "/" ? " navbar-link-active-1" : "")} >
-                              <Link to="/">ABOUT</Link>
-                            </li>
-                            <li className={"navbar-link" + (props.location.pathname === "/projects" ? " navbar-link-active-2" : "")} >
-                              <Link to="/projects">PROJECTS</Link>
-                              </li>
-                            <li className={"navbar-link" + (props.location.pathname === "/contact" ? " navbar-link-active-3" : "")} >
-                              <Link to="/contact">CONTACT</Link>
-                            </li>                
-                            <hr className="navbar-border"/> 
-                          </ul>
-                        </Row>
-                      </Col>
-                    </Navbar>
+                    <MyNavBar location = {props.location}/>
                   )
                 }} />
 
@@ -55,12 +38,62 @@ class App extends Component {
   }
 }
 
+class MyNavBar extends Component {
+  render() {
+    return (
+      <Navbar sticky="top" bg="white" variant="light">
+        <Col>
+          <Row className="justify-content-center">
+            <ul className="nav navbar-links align-content-center">
+              <li className={"navbar-link" + (this.props.location.pathname === "/" ? " navbar-link-active-1" : "")} >
+                <Link to="/">ABOUT</Link>
+              </li>
+              <li className={"navbar-link" + (this.props.location.pathname !== "/" && this.props.location.pathname !== "/contact"? " navbar-link-active-2" : "")} >
+                <Link to="/projects">PROJECTS</Link>
+                </li>
+              <li className={"navbar-link" + (this.props.location.pathname === "/contact" ? " navbar-link-active-3" : "")} >
+                <Link to="/contact">CONTACT</Link>
+              </li>                
+              <hr className="navbar-border"/> 
+            </ul>
+          </Row>
+        </Col>
+      </Navbar>
+    );
+  }
+}
+
+// return (
+//   <Navbar className={this.state.visible ? "" : "navbar--hidden"} 
+//           fixed="top" bg="white" variant="light">
+//     <Col>
+//       <Row className="justify-content-center navbar--show">
+//         <h1 className="page-header-text text-secondary">Khang Vo</h1>
+//       </Row>
+//       <Row className="justify-content-center">
+//         <ul className="nav navbar-links align-content-center">
+//           <li className={"navbar-link" + (this.props.location.pathname === "/" ? " navbar-link-active-1" : "")} >
+//             <Link to="/">ABOUT</Link>
+//           </li>
+//           <li className={"navbar-link" + (this.props.location.pathname !== "/" && this.props.location.pathname !== "/contact"? " navbar-link-active-2" : "")} >
+//             <Link to="/projects">PROJECTS</Link>
+//             </li>
+//           <li className={"navbar-link" + (this.props.location.pathname === "/contact" ? " navbar-link-active-3" : "")} >
+//             <Link to="/contact">CONTACT</Link>
+//           </li>                
+//           <hr className="navbar-border"/> 
+//         </ul>
+//       </Row>
+//     </Col>
+//   </Navbar>
+// );
+
 class Projects extends Component {
   render() {
     return (
-      <div className="page">
-        <Container className="p-3">
-          <Row xs={1} md={2} xl={2}>
+      <div>
+        <Container className="p-3 fadeIn">
+          <Row xs={1} md={2} xl={3}>
             <ProjectCard link='/notes-app' 
               imgSrc={NotesApp_Img} 
               cardTitle='React Markdown Notes Taking App'
@@ -121,7 +154,7 @@ class About extends Component {
   render() {
     return (
       <div>
-        <div id="welcome-msg-box" className="custom-shadow">
+        <div id="welcome-msg-box" className="custom-shadow fadeIn animate">
           <div id="welcome-msg-box-header" className="d-flex justify-content-between">
             <div className="d-flex align-items-center pl-4">
               <i className="arrow arrow-left"></i>
