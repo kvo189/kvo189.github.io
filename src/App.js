@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
+import './App.css';
 import { HashRouter, Route, Link} from "react-router-dom";
 import ScrollToTop from 'react-router-scroll-top';
 import {Container, Card, Row, Col, Navbar} from 'react-bootstrap';
-import './App.css';
 import TicTacToe_Img from './images/TicTacToe.png';
 import NotesApp_Img from './images/NotesApp.png';
 import Project_Saigon_IMG from './images/Project_Saigon_IMG.png';
-import TicTacToe from './TicTacToe';
-import NotesApp from './projects/notes-app/App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -29,8 +27,6 @@ class App extends Component {
           <Route exact path="/" component={About} />
           <Route path="/projects" component={Projects} />
           <Route path="/contact" component={Contact} />
-          <Route path="/tic-tac-toe" component={TicTacToe} />
-          <Route path="/notes-app" component={NotesApp} />
         </div>
         </ScrollToTop>
       </HashRouter>
@@ -63,44 +59,19 @@ class MyNavBar extends Component {
   }
 }
 
-// return (
-//   <Navbar className={this.state.visible ? "" : "navbar--hidden"} 
-//           fixed="top" bg="white" variant="light">
-//     <Col>
-//       <Row className="justify-content-center navbar--show">
-//         <h1 className="page-header-text text-secondary">Khang Vo</h1>
-//       </Row>
-//       <Row className="justify-content-center">
-//         <ul className="nav navbar-links align-content-center">
-//           <li className={"navbar-link" + (this.props.location.pathname === "/" ? " navbar-link-active-1" : "")} >
-//             <Link to="/">ABOUT</Link>
-//           </li>
-//           <li className={"navbar-link" + (this.props.location.pathname !== "/" && this.props.location.pathname !== "/contact"? " navbar-link-active-2" : "")} >
-//             <Link to="/projects">PROJECTS</Link>
-//             </li>
-//           <li className={"navbar-link" + (this.props.location.pathname === "/contact" ? " navbar-link-active-3" : "")} >
-//             <Link to="/contact">CONTACT</Link>
-//           </li>                
-//           <hr className="navbar-border"/> 
-//         </ul>
-//       </Row>
-//     </Col>
-//   </Navbar>
-// );
-
 class Projects extends Component {
   render() {
     return (
       <div>
         <Container className="p-3 fadeIn">
           <Row xs={1} md={2} xl={3}>
-            <ProjectCard link='/notes-app' 
+            <ProjectCard link='https://kvo189.github.io/notes-app/' 
               imgSrc={NotesApp_Img} 
               cardTitle='React Markdown Notes Taking App'
               date = 'July 3 2020'
               description = 'Create and store your notes in markdown format for a later purpose!'
             />
-            <ProjectCard link="/tic-tac-toe"
+            <ProjectCard link="https://kvo189.github.io/tic-tac-toe/"
               imgSrc={TicTacToe_Img} 
               cardTitle='Tic-Tac-Toe'
               date = 'April 23 2020'
@@ -111,7 +82,6 @@ class Projects extends Component {
               cardTitle='Saigonnoodlehouse280.com'
               date = 'May 2018'
               description = 'Responsive Web Design with HTML/CSS/JS'
-              isDirectLink = {true}
             />
           </Row>
         </Container>
@@ -126,20 +96,13 @@ class ProjectCard extends Component {
       imgSrc = this.props.imgSrc,
       cardTitle = this.props.cardTitle,
       date = this.props.date,
-      description = this.props.description,
-      isDirectLink = this.props.isDirectLink;
-    var linkHTML;
-    if (!isDirectLink) {
-      linkHTML = <Link to={link}><Card.Img variant="top" src={imgSrc} /></Link>;
-    }else{
-      linkHTML = <a href={link}><Card.Img variant="top" src={imgSrc} /></a>
-    }
+      description = this.props.description;
 
     return (
       <Col>
         <Card>
           <Card.Body className="card-effect">
-            {linkHTML}
+          <a href={link}><Card.Img variant="top" src={imgSrc} /></a>
             <Card.Title>{cardTitle}</Card.Title>
             <small className="text-muted">created on {date}</small>
             <Card.Text>{description}</Card.Text>
