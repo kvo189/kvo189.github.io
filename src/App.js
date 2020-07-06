@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Link } from "react-router-dom";
+import { HashRouter, Route, Link} from "react-router-dom";
 import ScrollToTop from 'react-router-scroll-top';
-import {Container, Card, Row, Col, Button, Nav, Navbar} from 'react-bootstrap';
+import {Container, Card, Row, Col, Navbar} from 'react-bootstrap';
 import './App.css';
 import TicTacToe_Img from './images/TicTacToe.png';
 import NotesApp_Img from './images/NotesApp.png';
@@ -13,43 +13,41 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   render() {
-    const linkStyle = {color: 'inherit', textDecoration: 'none'};
     return (
       <HashRouter basename="/">
         <ScrollToTop>
         <div>
-          <Navbar fixed="top" bg="white" variant="light">
-            <Col>
-              <Row className="justify-content-center">
-                <h1 className="page-header-text text-secondary">Khang Vo</h1>
-              </Row>
-              <Row className="justify-content-center">
-                <Nav >
-                  <Nav.Link className="px-4 nav-btn">
-                    <Link style={linkStyle} to="/">
-                      ABOUT
-                    </Link>
-                  </Nav.Link>
-                  <Nav.Link className="px-4 nav-btn" >
-                    <Link style={linkStyle} to="/projects">
-                      PROJECTS
-                    </Link>
-                  </Nav.Link>
-                  <Nav.Link className="px-4 nav-btn" >
-                    <Link style={linkStyle} to="/contact"
-                      >CONTACT
-                    </Link>
-                  </Nav.Link>
-                </Nav>
-              </Row>
-            </Col>
-          </Navbar>
+          <Route render={(props) => {
+                  return (
+                    <Navbar fixed="top" bg="white" variant="light">
+                      <Col>
+                        <Row className="justify-content-center">
+                          <h1 className="page-header-text text-secondary">Khang Vo</h1>
+                        </Row>
+                        <Row className="justify-content-center">
+                          <ul className="nav navbar-links align-content-center">
+                            <li className={"navbar-link" + (props.location.pathname === "/" ? " navbar-link-active-1" : "")} >
+                              <Link to="/">ABOUT</Link>
+                            </li>
+                            <li className={"navbar-link" + (props.location.pathname === "/projects" ? " navbar-link-active-2" : "")} >
+                              <Link to="/projects">PROJECTS</Link>
+                              </li>
+                            <li className={"navbar-link" + (props.location.pathname === "/contact" ? " navbar-link-active-3" : "")} >
+                              <Link to="/contact">CONTACT</Link>
+                            </li>                
+                            <hr className="navbar-border"/> 
+                          </ul>
+                        </Row>
+                      </Col>
+                    </Navbar>
+                  )
+                }} />
 
           <Route exact path="/" component={About} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/contact" component={Contact} />
           <Route path="/tic-tac-toe" component={TicTacToe} />
           <Route path="/notes-app" component={NotesApp} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/projects" component={Projects} />
         </div>
         </ScrollToTop>
       </HashRouter>
@@ -60,8 +58,8 @@ class App extends Component {
 class Projects extends Component {
   render() {
     return (
-      <div className="page bg-light">
-        <Container className="p-3 bg-light">
+      <div className="page">
+        <Container className="p-3">
           <Row xs={1} md={2} xl={2}>
             <ProjectCard link='/notes-app' 
               imgSrc={NotesApp_Img} 
@@ -85,6 +83,36 @@ class Projects extends Component {
           </Row>
         </Container>
       </div>
+    );
+  }
+}
+
+class ProjectCard extends Component {
+  render() {
+    const link = this.props.link,
+      imgSrc = this.props.imgSrc,
+      cardTitle = this.props.cardTitle,
+      date = this.props.date,
+      description = this.props.description,
+      isDirectLink = this.props.isDirectLink;
+    var linkHTML;
+    if (!isDirectLink) {
+      linkHTML = <Link to={link}><Card.Img variant="top" src={imgSrc} /></Link>;
+    }else{
+      linkHTML = <a href={link}><Card.Img variant="top" src={imgSrc} /></a>
+    }
+
+    return (
+      <Col>
+        <Card>
+          <Card.Body className="card-effect">
+            {linkHTML}
+            <Card.Title>{cardTitle}</Card.Title>
+            <small className="text-muted">created on {date}</small>
+            <Card.Text>{description}</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
     );
   }
 }
@@ -116,36 +144,6 @@ class About extends Component {
         </div>
       </div>
     )
-  }
-}
-
-class ProjectCard extends Component {
-  render() {
-    const link = this.props.link,
-      imgSrc = this.props.imgSrc,
-      cardTitle = this.props.cardTitle,
-      date = this.props.date,
-      description = this.props.description,
-      isDirectLink = this.props.isDirectLink;
-    var linkHTML;
-    if (!isDirectLink) {
-      linkHTML = <Link to={link}><Card.Img className="shadow-sm zoom" variant="top" src={imgSrc} /></Link>;
-    }else{
-      linkHTML = <a href={link}><Card.Img className="shadow-sm zoom" variant="top" src={imgSrc} /></a>
-    }
-
-    return (
-      <Col>
-        <Card>
-          <Card.Body>
-            {linkHTML}
-            <Card.Title>{cardTitle}</Card.Title>
-            <small className="text-muted">created on {date}</small>
-            <Card.Text>{description}</Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-    );
   }
 }
 
