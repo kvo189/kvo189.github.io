@@ -6,6 +6,7 @@ import {Container, Card, Row, Col, Navbar} from 'react-bootstrap';
 import TicTacToe_Img from './images/TicTacToe.png';
 import NotesApp_Img from './images/NotesApp.png';
 import Project_Saigon_IMG from './images/Project_Saigon_IMG.png';
+import CalculatorApp_Img from './images/CalculatorApp.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -65,9 +66,15 @@ class Projects extends Component {
       <div>
         <Container className="p-3 fadeIn">
           <Row xs={1} md={2} xl={3}>
+            <ProjectCard link="https://kvo189.github.io/calculator/"
+              imgSrc={CalculatorApp_Img} 
+              cardTitle='Calculator App'
+              date = 'July 6 2020'
+              description = 'A calculator app made with React utilizing formula/expression logic'
+            />
             <ProjectCard link='https://kvo189.github.io/notes-app/' 
               imgSrc={NotesApp_Img} 
-              cardTitle='React Markdown Notes Taking App'
+              cardTitle='Markdown Notes Taking App'
               date = 'July 3 2020'
               description = 'Create and store your notes in markdown format for a later purpose!'
             />
@@ -75,13 +82,13 @@ class Projects extends Component {
               imgSrc={TicTacToe_Img} 
               cardTitle='Tic-Tac-Toe'
               date = 'April 23 2020'
-              description = 'Simple Tic-Tac-Toe Game with React'
+              description = 'A simple Tic-Tac-Toe game made with React'
             />
             <ProjectCard link="http://www.saigonnoodlehouse280.com"
               imgSrc={Project_Saigon_IMG} 
               cardTitle='Saigonnoodlehouse280.com'
               date = 'May 2018'
-              description = 'Responsive Web Design with HTML/CSS/JS'
+              description = 'Responsive web design with HTML/CSS/JS'  
             />
           </Row>
         </Container>
