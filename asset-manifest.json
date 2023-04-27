@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ca6232c1.chunk.css",
+    "main.js": "/static/js/main.8af0c103.chunk.js",
+    "main.js.map": "/static/js/main.8af0c103.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.95455954.js",
+    "runtime-main.js.map": "/static/js/runtime-main.95455954.js.map",
+    "static/css/2.58570433.chunk.css": "/static/css/2.58570433.chunk.css",
+    "static/js/2.b3d37cc1.chunk.js": "/static/js/2.b3d37cc1.chunk.js",
+    "static/js/2.b3d37cc1.chunk.js.map": "/static/js/2.b3d37cc1.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.8ac1c2a89201f07441670253f7e9b67f.js": "/precache-manifest.8ac1c2a89201f07441670253f7e9b67f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.58570433.chunk.css.map": "/static/css/2.58570433.chunk.css.map",
+    "static/css/main.ca6232c1.chunk.css.map": "/static/css/main.ca6232c1.chunk.css.map",
+    "static/js/2.b3d37cc1.chunk.js.LICENSE.txt": "/static/js/2.b3d37cc1.chunk.js.LICENSE.txt",
+    "static/media/CalculatorApp.png": "/static/media/CalculatorApp.968e4841.png",
+    "static/media/NotesApp.png": "/static/media/NotesApp.97006687.png",
+    "static/media/Project_Saigon_IMG.png": "/static/media/Project_Saigon_IMG.c912ea81.png",
+    "static/media/TicTacToe.png": "/static/media/TicTacToe.7f8e612c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.95455954.js",
+    "static/css/2.58570433.chunk.css",
+    "static/js/2.b3d37cc1.chunk.js",
+    "static/css/main.ca6232c1.chunk.css",
+    "static/js/main.8af0c103.chunk.js"
+  ]
+}
