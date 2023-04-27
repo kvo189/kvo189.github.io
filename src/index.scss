@@ -2,11 +2,11 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255);
-  background-color: #242424;
-  --bs-body-color: rgba(255, 255, 255);
-  --bs-body-bg: #242424;
+  // color-scheme: light dark;
+  // color: rgba(255, 255, 255);
+  // background-color: #242424;
+  // --bs-body-color: rgba(255, 255, 255);
+  // --bs-body-bg: #242424;
 }
 body {
   margin: 0;
@@ -14,9 +14,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-}
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     color: #213547;
+//     background-color: #ffffff;
+//   }
+// }
