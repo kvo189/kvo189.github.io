@@ -142,7 +142,7 @@ class About extends Component {
             <h1>Hello! My name is <span className="text-highlight">Khang Vo</span></h1>
           </div>
           <div className="from-them">
-            <p>I’m a self taught front end <span className="text-highlight">web developer</span> from Birmingham, AL.</p>
+            <p>I'm a self taught front-end <span className="text-highlight">web developer</span> from Birmingham, AL.</p>
           </div>
         </div>
       </div>
